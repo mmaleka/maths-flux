@@ -1,7 +1,7 @@
 import os
 import sys
 
-path = '/home/pythonanywheremmaleka/blog' # Use PythonAnywhere username here
+path = '/home/mmaleka/maths-flux' # Use PythonAnywhere username here
 if path not in sys.path:
     sys.path.append(path)
 
