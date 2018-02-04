@@ -1,0 +1,22 @@
+{% extends 'posts/layout.html' %}
+
+{% load staticfiles %}
+
+{% block head_title %} {{ block.super }} | {{ title }} {% endblock head_title %}
+<!--{% block profile %} {{ user }} - {{ block.super }}{% endblock profile %}-->
+
+{% block content %}
+
+    <div class="card">
+            <h1 class="userName">Hello {{ user }}</h1>
+            <p>{{ user.first_name }} {{ user.last_name }}</p>
+            {% if user.email %}
+            <p>Email: {{ user.email }}</p>
+            {% endif %}
+            <br>
+            <br>
+            <br>
+            <br>
+    </div>
+
+{% endblock %}

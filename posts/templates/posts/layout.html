@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="Keywords" content="Math tutor, Learn, Skills, Maths, Mathematics">
+    <title>{% block head_title %} m a t h s f l u x {% endblock head_title %}</title>
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}" />
+    <!--img src="{% static 'img/bunny.png' %}" class="icon"-->
+    <style>
+            .navbar {
+                margin-bottom: 0;
+                border-radius: 0;
+                background-color: #0B6CA3;
+                color: #FFF;
+                padding: 0px 0 0 0;
+                font-size: 1.2em;
+                border: 0;
+            }
+            .navbar-brand{
+                float: left;
+                min-height: 0px;
+                padding: 5px 0px 0px 20px;
+            }
+            .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover{
+                color: #FFF;
+                background-color: #0B6CA3;
+            }
+            .navbar-inverse .navbar-nav li a {
+                color: #D5D5D5;
+            }
+
+            .navbar-toggle {
+                margin-left: 10px;
+            }
+
+            .LogRegister{
+                max-width: 400px;
+                margin-bottom: 2cm;
+            }
+
+            .thumbnail{
+                margin-top: 0cm;
+            }
+            footer{
+                width: 100%;
+                background-color: #617484;
+                color: #FFF;
+                padding: 3%;
+                }
+
+
+
+            .glyphicon {
+                padding: 0 5px;
+            }
+
+
+            .sidenav2 .sidebar-less hr {
+                display: block;
+                content: "";
+                height: 30px;
+                margin-top: -31px;
+                border-style: solid;
+                border-color: #8c8b8b;
+                border-width: 0 0 1px 0;
+                border-radius: -20px;
+            }
+
+            .content{
+                padding-top: 20px;
+            }
+
+
+
+
+
+            .container hr {
+                border-style: solid;
+                border-width: 0 0 1px 0;
+                border-color: #C2C7CB;
+             }
+
+            .sidenav2 .sidebar-brand a{
+                text-align: center;
+                font-size: 30px;
+                color: #f1f1f1;
+            }
+
+            .sidenav2 {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                #z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: #2C3E50;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+            }
+
+
+
+
+            .sidenav2 a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+            .sidenav2 a:hover {
+                color: #f1f1f1;
+            }
+
+            .sidenav2 .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+            #dismiss {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                text-align: center;
+                background: #2C3E50;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+                -webkit-transition: all 0.3s;
+                -o-transition: all 0.3s;
+                transition: all 0.3s;
+            }
+
+            .overlay {
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 998;
+                display: none;
+            }
+            #sidebar .sidebar-header {
+                padding: 20px;
+                <!--background: #6d7fcc;-->
+            }
+            #sidebar ul.components {
+                padding: 20px 0;
+                border-bottom: 1px solid #47748b;
+            }
+            #sidebar ul li a {
+                padding: 10px;
+                font-size: 1.1em;
+                display: block;
+            }
+            #sidebar ul li.active > a, a[aria-expanded="true"] {
+                color: #fff;
+                background: #6d7fcc;
+            }
+
+
+            a[data-toggle="collapse"] {
+                position: relative;
+            }
+
+            a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+                content: '\e259';
+                display: block;
+                position: absolute;
+                right: 20px;
+                font-family: 'Glyphicons Halflings';
+                font-size: 0.6em;
+            }
+            a[aria-expanded="true"]::before {
+                content: '\e260';
+            }
+
+
+            ul ul a {
+                font-size: 0.9em !important;
+                padding-left: 30px !important;
+                background: #6d7fcc;
+            }
+
+            ul.CTAs {
+                padding: 20px;
+            }
+
+            ul.CTAs a {
+                text-align: center;
+                font-size: 0.9em !important;
+                display: block;
+                border-radius: 5px;
+                margin-bottom: 5px;
+            }
+            a.download {
+                background: #fff;
+                color: #7386D5;
+            }
+            a.article, a.article:hover {
+                background: #6d7fcc !important;
+                color: #fff !important;
+            }
+
+
+            .facebookShare{
+                padding-bottom: 10px;
+            }
+
+            .media{
+                padding-bottom: 10px;
+            }
+
+            .btn .btn-primary{
+                padding: 10px;
+            }
+            .messages li{
+                ist-style: none;
+            }
+            .learn-maths{
+                padding: 20px 0px 20px 0px;
+            }
+            .ask-questions{
+                padding: 10px 0px 0px 100px;
+            }
+            .for-everyone{
+                padding: 10px 0px 0px 150px;
+            }
+            .for-free{
+                padding: 10px 0px 0px 200px;
+            }
+
+            .body{
+                font-family: Arial, Helvetica, sans-serif ;
+            }
+            .userName {
+                color: grey;
+                <!--font-size: 18px;-->
+            }
+            .card {
+                margin: auto;
+                text-align: center;
+            }
+
+            .alert {
+                padding: 10px;
+                color: white;
+                opacity: 1;
+                transition: opacity 0.6s;
+                margin-bottom: 15px;
+            }
+            .fa{
+                    font-size: 25px;
+                    padding: 5px;
+                    color: white;
+            }
+            .alert.info {background-color: #2196F3;}
+
+            .closebtn {
+                margin-left: 15px;
+                color: white;
+                font-weight: bold;
+                float: right;
+                font-size: 22px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .closebtn:hover {
+                color: black;
+            }
+                @media (max-width: 800px){
+            .LogRegister{
+                margin-bottom: 2cm;
+            }
+            .search{
+                display: none;
+            }
+            .tags{
+                display: none;
+            }
+            h1{
+                font-size: 25px;
+            }
+            h2{
+                font-size: 20px;
+            }
+            .bunny{
+                display: none;
+            }
+
+            .fa{
+                font-size: 24px;
+            }
+
+            .sidebar-less a {
+                font-size: 18px;
+            }
+
+            .navbar-brand{
+                float: left;
+                min-height: 0px;
+                padding: 10px 0px 0px 20px;
+            }
+            .ask-questions{
+                padding: 10px 0px 0px 50px;
+            }
+            .for-everyone{
+                padding: 10px 0px 0px 75px;
+            }
+            .for-free{
+                padding: 10px 0px 0px 100px;
+            }
+        }
+
+
+    </style>
+</head>
+<body class="body">
+
+
+<!--Navigation bar for small screens-->
+<div id="wrapper" class="wrapper">
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="navbar navbar-fixed-top sidenav2" id="mySidenav2" role="navigation">
+
+            <div id="dismiss">
+                <i class="glyphicon glyphicon-arrow-left" onclick="closeNav()"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/Logo_3.png' %}"></a>
+            </div>
+
+
+            <ul class="list-unstyled components">
+                <!--<li>-->
+                    <!--<a href="{% url 'home' %}">Home</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="#">Blog</a>-->
+                <!--</li>-->
+                {% if request.user.is_authenticated %}
+                <li>
+                    <a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user User"></span>{{ request.user }}</a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out User"></span>Logout</a>
+                </li>
+                {% else %}
+                <li ><a href="{% url 'login' %}">
+                        <span class="glyphicon glyphicon-log-in User"></span>Login</a>
+                </li>
+                <li ><a href="{% url 'register' %}">
+                    <span class="glyphicon glyphicon-user User"></span>Sign Up</a>
+                </li>
+                {% endif %}
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li><a href="{% url 'posts:post_create' %}" class="download">Ask A Question</a></li>
+                <li><a href="{% url 'posts:list' %}" class="article">Top Questions</a></li>
+            </ul>
+
+
+        </div>
+
+    <!-- Sidebar -->
+
+
+    <!--Navigation bar for large screens-->
+    <nav id="mySidenav" class="navbar navbar-inverse sidenav ">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="pull-left navbar-toggle toggle-btn" data-target="#myNavbar" onclick="openNav()">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/Logo_3.png' %}"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <!--<li ><a href="#">Blog</a>-->
+                    <li ><a id="p1" href="{% url 'posts:list' %}">Top Questions</a></li>
+                    <li ><a href="{% url 'posts:post_create' %}">Ask A Question</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if request.user.is_authenticated %}
+
+                    <li ><a id="userName" href="{% url 'profile' %}">
+                        <span class="glyphicon glyphicon-user User"></span>{{ request.user }}</a></li>
+                    <li ><a href="{% url 'logout' %}">
+                        <span class="glyphicon glyphicon-log-out User"></span>Logout</a></li>
+
+                    {% else %}
+                    <li ><a href="{% url 'login' %}">
+                        <span class="glyphicon glyphicon-log-in User"></span>Login</a></li>
+                    <li ><a href="{% url 'register' %}">
+                        <span class="glyphicon glyphicon-user User"></span>Sign Up</a></li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!--Navigation bar for large screens-->
+
+
+
+
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-8">
+
+            {% block content %}
+
+            {% endblock %}
+            </div>
+
+            <div class="col-xs-12 col-md-4">
+                <h3 class="search">Search</h3>
+                <div class="thumbnail">
+                    <div class="caption">
+                        <form method="GET" action="/posts">
+                            <div class="input-group">
+                                <input class="form-control" type="text" name="q"  placeholder="Seacrh questions" value="{{ request.GET.q }}" id="search1"/>
+                                <span class="input-group-btn">
+                                  <button type="submit" class="btn btn-secondary" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 col-md-4">
+                <h3 class="tags">Tags</h3>
+                <ul class="list-unstyled mb-0">
+                </ul>
+                <div class="thumbnail">
+                    <div class="caption">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <ul class="list-unstyled mb-0">
+                                {% for tag_1 in tags_1st %}
+                                    <li><a href="/posts/tag/{{ tag_1.name }}">{{ tag_1.name }}</a></li>
+                                {% empty %}
+                                    <li>No Tags</li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <ul class="list-unstyled mb-0">
+                                {% for tag_2 in tags_2nd %}
+                                    <li><a href="/posts/tag/{{ tag_2.name }}">{{ tag_2.name }}</a></li>
+                                {% empty %}
+                                    <li>No Tags</li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% block Startpagination %}
+
+        {% endblock %}
+
+    </div>
+    <!-- /#page-content-wrapper -->
+
+
+
+    <!-- Footer -->
+    <footer class="container-fluid text-center">
+        <div class="row">
+            <div class="col-sm-4">
+                <p>
+                    Our missiion is to provide a free, world class tutoring and mentorship to everyone, anywhere.
+                </p>
+
+                <p>
+                    Get full written solutions to any maths questions immediately.
+                </p>
+
+                <p>
+                    Get all the preparation for your tests and exams.
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Connect</h3>
+                <a href="#" id="facebook" class="fa">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#" id="twitter">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#" id="linkedin">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#" id="youtube">
+                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="col-sm-4 bunny">
+                <a href="/admin"> <img src="{% static 'img/bunny.png' %}" class="icon"> </a>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <p>&copy;2018 mathsflux</p>
+        </div>
+    </footer>
+
+
+</nav>
+</div>
+<!-- /#wrapper -->
+
+
+<div class="overlay"></div>
+
+<!-- Latest compiled and minified JavaScript -->
+<script type="text/javascript" src="{% static 'js/myCustomJS.js' %}"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.9/marked.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".content-markdown").each(function(){
+            var content = $(this).text()
+            var markedContent = marked(content)
+            $(this).html(markedContent)
+        })
+    })
+</script>
+
+</body>
+</html>

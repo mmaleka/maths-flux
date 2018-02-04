@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="Keywords" content="Math tutor, Learn, Skills, Maths, Mathematics">
+    <title>{% block head_title %} M a t h s F l e x {% endblock head_title %}</title>
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+            background-color: #0B6CA3;
+            color: #FFF;
+            <!--padding: 1% 0;-->
+            font-size: 1.2em;
+            border: 0;
+        }
+        .navbar-brand{
+            float: left;
+            min-height: 10px;
+            padding: 5px 15px 5px;
+        }
+        .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover{
+            color: #FFF;
+            background-color: #0B6CA3;
+        }
+        .navbar-inverse .navbar-nav li a {
+            color: #D5D5D5;
+        }
+
+        .navbar-toggle {
+            margin-left: 10px;
+        }
+
+        .LogRegister{
+            max-width: 400px;
+            margin-bottom: 2cm;
+        }
+
+        .thumbnail{
+            margin-top: 0cm;
+        }
+        footer{
+            width: 100%;
+            background-color: #0B6CA3;
+            color: #FFF;
+            padding: 3%;
+            }
+
+
+
+        .glyphicon {
+            padding: 0 5px;
+        }
+
+
+        .sidenav2 .sidebar-less hr {
+            display: block;
+            content: "";
+            height: 30px;
+            margin-top: -31px;
+            border-style: solid;
+            border-color: #8c8b8b;
+            border-width: 0 0 1px 0;
+            border-radius: -20px;
+        }
+
+        .content{
+            padding-top: 20px;
+        }
+
+        .container hr {
+            border-style: solid;
+            border-width: 0 0 1px 0;
+            border-color: #C2C7CB;
+         }
+
+        .sidenav2 .sidebar-brand a{
+            text-align: center;
+            font-size: 30px;
+            color: #f1f1f1;
+        }
+
+        .sidenav2 {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            #z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #2C3E50;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav2 a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav2 a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav2 .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .facebookShare{
+            padding-bottom: 10px;
+        }
+
+        .media{
+            padding-bottom: 10px;
+        }
+        .btn .btn-primary{
+            padding: 10px;
+        }
+        .messages li{
+            ist-style: none;
+        }
+
+        @media (max-width: 700px){
+            .LogRegister{
+                margin-bottom: 2cm;
+            }
+            .SeachField{
+                display: none;
+            }
+            .bunny{
+                display: none;
+            }
+            .sidebar-less a {
+            font-size: 18px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+<!--Navigation bar for small screens-->
+<div id="wrapper">
+    <div class="overlay"></div>
+
+    <!-- Sidebar -->
+    <div class="navbar navbar-fixed-top sidenav2" id="mySidenav2" role="navigation">
+
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidebar-brand">
+            <a href="/">newBie</a>
+        </div>
+
+        <div class="sidebar-less">
+            <ul class="nav sidebar-nav">
+                <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                <li ><a href="#">Blog</a>
+                <li ><a href="{% url 'posts:list' %}">Top Questions</a>
+                <li ><a href="{% url 'posts:post_create' %}">
+                    <span class="glyphicons glyphicons-question-sign"></span>Ask A Question</a>
+                </li>
+                {% if request.user.is_authenticated %}
+
+                <li ><a href="{% url 'profile' %}">
+                    <span class="glyphicon glyphicon-user User"></span>{{ request.user }}</a>
+                </li>
+                <li ><a href="{% url 'logout' %}">
+                    <span class="glyphicon glyphicon-log-out User"></span>Logout</a>
+                </li>
+
+                {% else %}
+                <li ><a href="{% url 'login' %}">
+                    <span class="glyphicon glyphicon-log-in User"></span>Login</a>
+                </li>
+                <li ><a href="{% url 'register' %}">
+                    <span class="glyphicon glyphicon-user User"></span>Sign Up</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </div>
+    <!-- Sidebar -->
+
+
+    <!--Navigation bar for large screens-->
+    <nav id="mySidenav" class="navbar navbar-inverse sidenav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="pull-left navbar-toggle toggle-btn" data-target="#myNavbar" onclick="openNav()">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/Logo_3.png' %}"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                    <li ><a href="#">Blog</a>
+                    <li ><a id="p1" href="{% url 'posts:list' %}">Top Questions</a></li>
+                    <li ><a href="{% url 'posts:post_create' %}">Ask A Question</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if request.user.is_authenticated %}
+
+                    <li ><a id="userName" href="{% url 'profile' %}">
+                        <span class="glyphicon glyphicon-user User"></span>{{ request.user }}</a></li>
+                    <li ><a href="{% url 'logout' %}">
+                        <span class="glyphicon glyphicon-log-out User"></span>Logout</a></li>
+
+                    {% else %}
+                    <li ><a href="{% url 'login' %}">
+                        <span class="glyphicon glyphicon-log-in User"></span>Login</a></li>
+                    <li ><a href="{% url 'register' %}">
+                        <span class="glyphicon glyphicon-user User"></span>Sign Up</a></li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!--Navigation bar for large screens-->
+
+
+
+
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-8">
+
+            {% block content %}
+
+            {% endblock %}
+            </div>
+
+            <div class="col-xs-12 col-md-4">
+                <h3 class="my-4">Search</h3>
+                <div class="thumbnail">
+                    <div class="caption">
+                        <form method="GET" action="/posts">
+                            <div class="input-group">
+                                <input class="form-control" type="text" name="q"  placeholder="Seacrh posts" value="{{ request.GET.q }}" id="search1"/>
+                                <span class="input-group-btn">
+                                  <button type="submit" class="btn btn-secondary" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 col-md-4">
+                <h3 class="my-4">Tags</h3>
+                <div class="thumbnail">
+                    <div class="caption">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#">Web Design</a></li>
+                                    <li><a href="#">Web Design</a></li>
+                                    <li><a href="#">Web Design</a></li>
+                                    <li><a href="#">Web Design</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#">Web Design</a></li>
+                                    <li><a href="#">Web Design</a></li>
+                                    <li><a href="#">Web Design</a></li>
+                                    <li><a href="#">Web Design</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% block Startpagination %}
+
+        {% endblock %}
+
+    </div>
+    <!-- /#page-content-wrapper -->
+
+
+
+    <!-- Footer -->
+    <footer class="container-fluid text-center">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Contact Us</h3>
+                <br>
+                <h4>Cell number and adress here</h4>
+            </div>
+            <div class="col-sm-4">
+                <h3>Connect</h3>
+                <a href="https://www.facebook.com/mpho.maleka.31">
+                    <i class="fa fa-facebook" ariapy-hidden="true"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="col-sm-4 bunny">
+                <a href="/admin"> <img src="{% static 'img/bunny.png' %}" class="icon"> </a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /#wrapper -->
+
+
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script type="text/javascript" src="{% static 'js/myCustomJS.js' %}"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.9/marked.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".content-markdown").each(function(){
+            var content = $(this).text()
+            var markedContent = marked(content)
+            $(this).html(markedContent)
+        })
+    })
+</script>
+
+</body>
+</html>

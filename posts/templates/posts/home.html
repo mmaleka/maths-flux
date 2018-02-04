@@ -1,0 +1,18 @@
+{% extends 'posts/layout.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block head_title %} {{ block.super }} | Home {% endblock head_title %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="learn-maths animate" id="learn">YOU CAN <span style="color: #B27300">LEARN</span> MATHS.</h1>
+    <h3 class="ask-questions">Ask questions.</h3>
+    <h3 class="for-everyone">For everyone. Forever.</h3>
+    <h3 class="for-free">For free.</h3>
+</div>
+
+
+
+{% endblock %}

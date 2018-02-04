@@ -1,0 +1,88 @@
+{% extends 'posts/layout.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block head_title %} {{ block.super }} | {{ instance.title }}{% endblock head_title %}
+
+
+{% block content %}
+
+
+    <!-- Title -->
+    <h1 class="mt-4">{{ instance.title }}</h1>
+    <!-- Author -->
+    <p class="lead">
+        by
+        <a href="#">{{ instance.user }}</a>
+    </p>
+
+    <hr>
+        <!-- Date/Time -->
+        <p>Posted on {{ instance.timestamp }}</p>
+
+
+
+    <!-- Preview Image -->
+    <div class="thumbnail">
+        {% if instance.image %}
+        <img src="{{ instance.image.url }}" class="img-responsive" width="400" height="400">
+        <!--<img class="card-img-top" src="http://placehold.it/750x300" alt="...">-->
+        {% endif %}
+        <div class="content" >{{ instance.content|linebreaks }}</div>
+        <a class="facebookShare" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">Share on Facebook</a>
+    </div>
+
+
+    <!-- Comments Form -->
+    <div class="thumbnail">
+        <h5 class="card-header">Leave a Comment:</h5>
+        {% if request.user.is_authenticated %}
+
+        <div class="card-body">
+          <form method="POST" action="." enctype="multipart/form-data">{% csrf_token %}
+            {{ comment_form|crispy }}
+            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+
+        {% else %}
+
+        <div class="well well-lg">
+            <h3>You must login to reply</h3>
+        </div>
+
+        {% endif %}
+    </div>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert info">
+        <span class="closebtn">&times;</span>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <!-- Single Comment -->
+    {% for comment in comments %}
+
+    <div class="media">
+            <div class="media-left">
+                <a href="#">
+                  <img class="media-object" src="{% static 'img/user.png' %}" alt="User" height="42">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{ comment.user }} says: <br> <small>{{ comment.timestamp }}</small></h4>
+                    <br>
+                    {{ comment.content|linebreaks }}
+                    {% if comment.model_pic %}
+                        <img src="{{ comment.model_pic.url }}" class="img-responsive" width="400" height="400">
+                    {% endif %}
+            </div>
+    </div>
+
+    {% endfor%}
+
+
+{% endblock %}

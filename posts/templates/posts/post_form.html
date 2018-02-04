@@ -1,0 +1,20 @@
+{% extends 'posts/layout.html' %}
+{% load crispy_forms_tags %}
+
+{% load staticfiles %}
+
+{% block head_title %} {{ block.super }} | {{ title }}{% endblock head_title %}
+
+{% block content %}
+
+    <!--Ask a question form-->
+    <h1 class="test">Ask A Question</h1>
+    <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+        {{ form|crispy }}
+        <input id="ask_question" class="btn btn-primary" type="submit" value="Create Post" />
+
+    </form>
+    <br>
+
+
+{% endblock %}
