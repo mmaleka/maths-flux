@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9869f20d-8d81-4ab6-a646-906855bdce85" name="Default" comment="" />
+    <list default="true" id="9869f20d-8d81-4ab6-a646-906855bdce85" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/posts/templates/posts/layout.html" afterPath="$PROJECT_DIR$/posts/templates/posts/layout.html" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,23 +23,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="layout.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/posts/templates/posts/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="398" column="52" lean-forward="true" selection-start-line="398" selection-start-column="52" selection-end-line="398" selection-end-column="52" />
+            <state relative-caret-position="68">
+              <caret line="4" column="78" lean-forward="false" selection-start-line="4" selection-start-column="78" selection-end-line="4" selection-end-column="78" />
               <folding>
-                <marker date="1517810327582" expanded="true" signature="2160:3784" ph="..." />
+                <marker date="1517819080184" expanded="true" signature="2299:3923" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/posts/templates/posts/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+            <state relative-caret-position="187">
+              <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -90,8 +93,8 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/sample_wsgi.py" />
         <option value="$PROJECT_DIR$/blog/settings.py" />
-        <option value="$PROJECT_DIR$/posts/templates/posts/layout.html" />
         <option value="$PROJECT_DIR$/posts/templates/posts/home.html" />
+        <option value="$PROJECT_DIR$/posts/templates/posts/layout.html" />
       </list>
     </option>
   </component>
@@ -607,21 +610,21 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/posts/templates/posts/layout.html">
+    <entry file="file://$PROJECT_DIR$/posts/templates/posts/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="398" column="52" lean-forward="true" selection-start-line="398" selection-start-column="52" selection-end-line="398" selection-end-column="52" />
-          <folding>
-            <marker date="1517810327582" expanded="true" signature="2160:3784" ph="..." />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/posts/templates/posts/home.html">
+    <entry file="file://$PROJECT_DIR$/posts/templates/posts/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="68">
+          <caret line="4" column="78" lean-forward="false" selection-start-line="4" selection-start-column="78" selection-end-line="4" selection-end-column="78" />
+          <folding>
+            <marker date="1517819080184" expanded="true" signature="2299:3923" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
