@@ -25,7 +25,8 @@ SECRET_KEY = 'hc+75^k1opatn*_qn0x5355e=vd@y#)32$2euw=ltpew+v)cv1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mmaleka.pythonanywhere.com', 'www.math-flux.co.za']
+ALLOWED_HOSTS = []
+#'mmaleka.pythonanywhere.com', 'www.math-flux.co.za', '127.0.0.1:8000'
 
 
 # Application definition
